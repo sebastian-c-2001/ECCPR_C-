@@ -1,0 +1,75 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+short n[4],zero,unu;
+
+int main()
+{   int n1;
+    char a[1000];
+    cin>>n1;
+    cin>>a;
+
+
+    for (int i=0;i<n1;i=i+1)
+    {   if(i%2==0){
+
+        if(a[i]=='0' && a[i+1]=='0')
+            n[0]++;
+
+        if(a[i]=='0' && a[i+1]=='1')
+            n[1]++;
+
+        if(a[i]=='1' && a[i+1]=='0')
+            n[2]++;
+
+        if(a[i]=='1' && a[i+1]=='1')
+            n[3]++;
+    }
+
+        if(a[i]=='1')
+            unu++;
+        else zero++;
+
+    }
+
+int maxim=0, minim=10001;
+
+    for (int i=0;i<4;i=i+1)
+    {
+        if (n[i]>maxim)
+            maxim=n[i];
+        if (n[i]<minim)
+            minim=n[i];
+
+    }
+
+short ok=1;
+
+cout<< float(maxim)/minim<<" ";
+
+if(float(maxim)/minim>1.1)
+    ok=0;
+
+if(zero>unu)
+    {cout<<float(zero)/unu<<endl;
+    if(float(zero)/unu>1.1)
+        ok=0;
+    }
+
+else {cout<<float(unu)/zero<<endl;
+if(float(unu)/zero>1.1)
+        ok=0;
+}
+
+
+cout<<ok;
+
+    return 0;
+}
+/*
+18
+101100110111100001
+
+
+*/
